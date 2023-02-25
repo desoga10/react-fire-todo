@@ -49,14 +49,18 @@ const Todo = () => {
   //Delete Handler
   const deleteTodo = async (id) => {
     try {
-      window.confirm("Are you sure you want to delete this Todo?")
-      const documentRef = doc(db, "todo", id);
-      await deleteDoc(documentRef)
-      window.location.reload();
+
+      if (window.confirm("Are you sure you want to delete this Task!")) {
+        const documentRef = doc(db, "todo", id);
+        await deleteDoc(documentRef)
+        window.location.reload()
+      }
+
     } catch (err) {
       console.log(err);
     }
   }
+
 
 
   //Checkbox Handler
